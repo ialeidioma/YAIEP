@@ -14,14 +14,15 @@ class MainMenu
 		void draw(RenderWindow& window);
 		void MoveUp();
 		void MoveDown();
-		
+		void Selected();
+		int MainMenuSelected;
 		int MainMenuPressed() {
 			return MainMenuSelected;
 		}
 		~MainMenu();
+		void Unselected();
 
 	private:
-		int MainMenuSelected;
 		Font font;
 		Text mainMenu[Max_main_menu];
 

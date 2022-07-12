@@ -1,4 +1,5 @@
 #include "MainMenu.h"
+#include <SFML/Graphics.hpp>
 
 MainMenu::MainMenu(float width, float height)
 {
@@ -56,7 +57,7 @@ void MainMenu::MoveUp() {
 		MainMenuSelected--;
 		if (MainMenuSelected == -1)
 			MainMenuSelected = 2;
-		mainMenu[MainMenuSelected].setFillColor(Color::Blue);
+		Selected();
 	}
 }
 
@@ -68,6 +69,18 @@ void MainMenu::MoveDown() {
 		MainMenuSelected++;
 		if (MainMenuSelected == 4)
 			MainMenuSelected = 0;
-		mainMenu[MainMenuSelected].setFillColor(Color::Blue);
+		Selected();
 	}
+}
+
+
+void MainMenu::Selected() {
+	mainMenu[MainMenuSelected].setFillColor(Color::Blue);
+}
+
+void MainMenu::Unselected() {
+	mainMenu[0].setFillColor(Color::White);
+	mainMenu[1].setFillColor(Color::White);
+	mainMenu[2].setFillColor(Color::White);
+	mainMenu[3].setFillColor(Color::White);
 }
